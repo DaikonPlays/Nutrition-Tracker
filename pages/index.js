@@ -1,11 +1,16 @@
-import React from 'react';
-import styles from '@/styles/styles.module.css';
-import { useState } from 'react';
-import box from '@/components/ui/box.module.css';
+import React from "react";
+import styles from "@/styles/styles.module.css";
+import { useState } from "react";
+import box from "@/components/ui/box.module.css";
+import Link from "next/link";
+import { NextUIProvider } from "@nextui-org/react";
+
 function Home() {
-  const [height, setHeight] = useState('');
-  const [weight, setWeight] = useState('');
-  const [age, setAge] = useState('');
+  const [height, setHeight] = useState("");
+  const [weight, setWeight] = useState("");
+  const [age, setAge] = useState("");
+  const [name, setName] = useState("");
+  const [gender, setGender] = useState("");
 
   const handleHeightChange = (event) => {
     setHeight(event.target.value);
@@ -19,40 +24,77 @@ function Home() {
     setAge(event.target.value);
   };
 
+  const handleName = (event) => {
+    setName(event.target.value);
+  };
+  const handleGender = (event) => {
+    setGender(event.target.value);
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('Height:', height);
-    console.log('Weight:', weight);
-    console.log('Age:', age);
-    setHeight('');
-    setWeight('');
-    setAge('');
+    console.log("Height: ", height);
+    console.log("Weight: ", weight);
+    console.log("Age: ", age);
+    console.log("Name: ", name);
+    console.log("Gender: ", gender);
+    setHeight("");
+    setWeight("");
+    setAge("");
+    setName("");
+    setGender("");
   };
 
   return (
-    <div>
-      <li className={box.item}>
-        <form onSubmit={handleSubmit}>
-          <label className={styles.indentedlabel}>
-            Enter your height:
-            <input type="text" value={height} onChange={handleHeightChange} />
-          </label>
-          <label className={styles.indentedlabel}>
-            Enter your weight:
-            <input type="text" value={weight} onChange={handleWeightChange} />
-          </label>
-          <label className={styles.indentedlabel}>
-            Enter your age:
-            <input type="text" value={age} onChange={handleAgeChange} />
-          </label>
-          <button type="submit" className={styles.button}>Save</button>
-        </form>
-        
-      </li>
-    </div>
+      <div className={styles.listcontainer}>
+        <li className={box.left}>
+          <form onSubmit={handleSubmit}>
+            <label className={styles.indentedlabel}>
+              Enter your name:
+              <input type="text" value={name} onChange={handleName} />
+            </label>
+            <label htmlFor="genderSelect">Select Gender:</label>
+            <select id="genderSelect" value={gender} onChange={handleGender}>
+              <option value="">Select</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+            <label className={styles.indentedlabel}>
+              Enter your height (inches):
+              <input
+                type="number"
+                value={height}
+                onChange={handleHeightChange}
+              />
+            </label>
+            <label className={styles.indentedlabel}>
+              Enter your weight (lbs):
+              <input
+                type="number"
+                value={weight}
+                onChange={handleWeightChange}
+              />
+            </label>
+            <label className={styles.indentedlabel}>
+              Enter your age:
+              <input type="number" value={age} onChange={handleAgeChange} />
+            </label>
+            <Link
+              href={{
+                pathname: `/${name}_data`,
+                query: { height, weight, age, name },
+              }}
+            >
+              <button type="submit" className={styles.button}>
+                Save
+              </button>
+            </Link>
+          </form>
+        </li>
+        <li className={box.right}>
+          
+        </li>
+      </div>
   );
 }
 
 export default Home;
-
-
