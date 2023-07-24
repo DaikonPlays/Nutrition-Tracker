@@ -1,18 +1,18 @@
-import Link from 'next/link';
+import Link from "next/link";
 
-import classes from './main-header.module.css';
+import classes from "./main-header.module.css";
 
 function MainHeader() {
   return (
     <header className={classes.header}>
       <div className={classes.logo}>
-        <Link href='/'>Best You</Link>
+        <Link href="/">Best You</Link>
       </div>
-      <nav className={classes.navigation}>
+      <nav className={classes.nav}>
         <ul>
           <li>
-            <Link href='/'>Home</Link>
-            <Link href='/calorie-tracker'>Calorie Tracker</Link>
+            <Link href="/">Home </Link>
+            <Link href="/calorie-tracker">Calorie Tracker</Link>
           </li>
         </ul>
       </nav>

@@ -100,7 +100,6 @@ function Home() {
             Sedentary (little to no exercise and work a desk job)
           </option>
           <option value="light">
-            <span></span>
             Lightly active (light exercise 1-3 days per week)
           </option>
           <option value="moderate">
@@ -114,21 +113,21 @@ function Home() {
           </option>
         </select>
         <Link
-        href={{
-          pathname: `/${name}_data`,
-          query: { height, weight, age, name, gender, goal, life },
-        }}
-      >
-        <button
-          type="submit"
-          className={styles.button}
-          disabled={
-            !height || !weight || !age || !name || !gender || !goal || !life
-          }
+          href={{
+            pathname: `/${name}_data`,
+            query: { height, weight, age, name, gender, goal, life },
+          }}
         >
-          Save
-        </button>
-      </Link>
+          <button
+            type="submit"
+            className={styles.button}
+            disabled={
+              !height || !weight || !age || !name || !gender || !goal || !life
+            }
+          >
+            Save
+          </button>
+        </Link>
       </li>
     </div>
   );
