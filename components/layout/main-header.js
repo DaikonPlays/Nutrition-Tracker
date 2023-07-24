@@ -11,7 +11,8 @@ function MainHeader() {
       <nav className={classes.navigation}>
         <ul>
           <li>
-            <Link href='@/pages/index'>Home</Link>
+            <Link href='/'>Home</Link>
+            <Link href='/calorie-tracker'>Calorie Tracker</Link>
           </li>
         </ul>
       </nav>
