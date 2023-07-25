@@ -4,7 +4,7 @@ import { useState } from "react";
 import box from "@/components/ui/box.module.css";
 import Link from "next/link";
 import { NextUIProvider } from "@nextui-org/react";
-
+import dropdown from '@/components/dropdown/dropdown.module.css' 
 function Home() {
   const [height, setHeight] = useState("");
   const [weight, setWeight] = useState("");
@@ -85,17 +85,18 @@ function Home() {
           </label>
         </form>
       </li>
+      <button className="bg-blue-400 p"></button>
       <li className={box.right}>
         <label htmlFor="goalSelect">Select your Goal:</label>
         <select id="goalSelect" value={goal} onChange={handleGoal}>
-          <option value="">Select</option>
+          <option value="" className="rounded-lg">Select</option>
           <option value="loseFat">Lose Fat</option>
           <option value="gainMuscle">Gain Muscle</option>
           <option value="maintainPhysique">Consistency</option>
         </select>
         <label htmlFor="lifeSelect">How Active are You:</label>
         <select id="lifeSelect" value={life} onChange={handleLife}>
-          <option value="">Select</option>
+          <option value="" className="rounded-lg">Select</option>
           <option value="sedentary">
             Sedentary (little to no exercise and work a desk job)
           </option>

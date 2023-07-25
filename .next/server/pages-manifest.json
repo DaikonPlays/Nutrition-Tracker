@@ -2,7 +2,5 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/calorie-tracker": "pages/calorie-tracker.js",
-  "/[userdata]": "pages/[userdata].js",
   "/": "pages/index.js"
 }
