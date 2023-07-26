@@ -3,8 +3,9 @@ import styles from "@/styles/styles.module.css";
 import { useState } from "react";
 import box from "@/components/ui/box.module.css";
 import Link from "next/link";
-import { NextUIProvider } from "@nextui-org/react";
-import dropdown from '@/components/dropdown/dropdown.module.css' 
+import Button from "@mui/material/Button";
+import { FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
+
 function Home() {
   const [height, setHeight] = useState("");
   const [weight, setWeight] = useState("");
@@ -63,56 +64,70 @@ function Home() {
         <form onSubmit={handleSubmit}>
           <label className={styles.indentedlabel}>
             Enter your name:
-            <input type="text" value={name} onChange={handleName} />
+            <TextField id="name" label="Name" value={name} onChange={handleName}/>
           </label>
           <label htmlFor="genderSelect">Select Gender:</label>
-          <select id="genderSelect" value={gender} onChange={handleGender}>
-            <option value="">Select</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-          </select>
+          <FormControl fullWidth>
+          <InputLabel id="genderSelect" className="rounded-lg" value="">
+            Select
+          </InputLabel>
+          <Select onChange={handleGender} value={gender}>
+            <MenuItem value={null}>Select</MenuItem>
+            <MenuItem value="male">Male</MenuItem>
+            <MenuItem value="female">Female</MenuItem>
+          </Select>
+        </FormControl>
           <label className={styles.indentedlabel}>
             Enter your height (inches):
-            <input type="number" value={height} onChange={handleHeightChange} />
+            <TextField type="number" id="height" label="Height" value={height} onChange={handleHeightChange}/>
           </label>
           <label className={styles.indentedlabel}>
             Enter your weight (lbs):
-            <input type="number" value={weight} onChange={handleWeightChange} />
+            <TextField type="number" id="weight" label="Weight" value={weight} onChange={handleWeightChange}/>
           </label>
           <label className={styles.indentedlabel}>
             Enter your age:
-            <input type="number" value={age} onChange={handleAgeChange} />
+            <TextField type="number" id="age" label="Age" value={age} onChange={handleAgeChange}/>
           </label>
         </form>
       </li>
-      <button className="bg-blue-400 p"></button>
       <li className={box.right}>
         <label htmlFor="goalSelect">Select your Goal:</label>
-        <select id="goalSelect" value={goal} onChange={handleGoal}>
-          <option value="" className="rounded-lg">Select</option>
-          <option value="loseFat">Lose Fat</option>
-          <option value="gainMuscle">Gain Muscle</option>
-          <option value="maintainPhysique">Consistency</option>
-        </select>
+        <FormControl fullWidth>
+          <InputLabel id="goalSelect" className="rounded-lg" value="">
+            Select
+          </InputLabel>
+          <Select onChange={handleGoal} value={goal}>
+            <MenuItem value={null}>Select</MenuItem>
+            <MenuItem value="loseFat">Lose Fat</MenuItem>
+            <MenuItem value="gainMuscle">Gain Muscle</MenuItem>
+            <MenuItem value="maintainPhysique">Maintain Physique</MenuItem>
+          </Select>
+        </FormControl>
         <label htmlFor="lifeSelect">How Active are You:</label>
-        <select id="lifeSelect" value={life} onChange={handleLife}>
-          <option value="" className="rounded-lg">Select</option>
-          <option value="sedentary">
-            Sedentary (little to no exercise and work a desk job)
-          </option>
-          <option value="light">
-            Lightly active (light exercise 1-3 days per week)
-          </option>
-          <option value="moderate">
-            Moderately active (moderate exercise 3-5 days per week)
-          </option>
-          <option value="very">
-            Very active (heavy exercise 6-7 days per week)
-          </option>
-          <option value="extremely">
-            Extremely active (strenuous training 2 times a day)
-          </option>
-        </select>
+        <FormControl fullWidth>
+          <InputLabel id="lifeSelect" className="rounded-lg">
+            Select
+          </InputLabel>
+          <Select onChange={handleLife} value={life}>
+            <MenuItem value={null}>Select</MenuItem>
+            <MenuItem value="sedentary">
+              Sedentary (little to no exercise and work a desk job)
+            </MenuItem>
+            <MenuItem value="light">
+              Lightly active (light exercise 1-3 days per week)
+            </MenuItem>
+            <MenuItem value="moderate">
+              Moderately active (moderate exercise 3-5 days per week)
+            </MenuItem>
+            <MenuItem value="very">
+              Very active (heavy exercise 6-7 days per week)
+            </MenuItem>
+            <MenuItem value="extremely">
+              Extremely active (strenuous training 2 times a day)
+            </MenuItem>
+          </Select>
+        </FormControl>
         <Link
           href={{
             pathname: `/${name}_data`,
