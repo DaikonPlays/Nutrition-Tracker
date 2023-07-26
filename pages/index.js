@@ -3,8 +3,8 @@ import styles from "@/styles/styles.module.css";
 import { useState } from "react";
 import box from "@/components/ui/box.module.css";
 import Link from "next/link";
-import Button from "@mui/material/Button";
 import { FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
+import { Image } from "@nextui-org/react";
 
 function Home() {
   const [height, setHeight] = useState("");
@@ -60,6 +60,7 @@ function Home() {
 
   return (
     <div className={styles.listcontainer}>
+      <Image width={320} height={180} src=""></Image>
       <li className={box.left}>
         <form onSubmit={handleSubmit}>
           <label className={styles.indentedlabel}>
