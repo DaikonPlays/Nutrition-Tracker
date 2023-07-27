@@ -4,8 +4,7 @@ import { useState } from "react";
 import box from "@/components/ui/box.module.css";
 import Link from "next/link";
 import { FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
-import { Image } from "@nextui-org/react";
-
+import Image from "next/image";
 function Home() {
   const [height, setHeight] = useState("");
   const [weight, setWeight] = useState("");
@@ -60,7 +59,17 @@ function Home() {
 
   return (
     <div className={styles.listcontainer}>
-      <Image width={320} height={180} src=""></Image>
+      <Image 
+      width={320} height={180} 
+      src='/weightlift.png'
+      alt="Default Image"
+      style={{ 
+        position: 'absolute', 
+        top: '200px', 
+        left: '1000px', 
+        zIndex: '1' 
+      }}
+      />
       <li className={box.left}>
         <form onSubmit={handleSubmit}>
           <label className={styles.indentedlabel}>
