@@ -3,7 +3,13 @@ import styles from "@/styles/styles.module.css";
 import { useState } from "react";
 import box from "@/components/ui/box.module.css";
 import Link from "next/link";
-import { FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
+import {
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField,
+} from "@mui/material";
 import Image from "next/image";
 function Home() {
   const [height, setHeight] = useState("");
@@ -59,45 +65,82 @@ function Home() {
 
   return (
     <div className={styles.listcontainer}>
-      <Image 
-      width={320} height={180} 
-      src='/weightlift.png'
-      alt="Default Image"
-      style={{ 
-        position: 'absolute', 
-        top: '200px', 
-        left: '1000px', 
-        zIndex: '1' 
-      }}
+      <h1
+        style={{
+          display: "block",
+          marginLeft: "auto",
+          marginRight: "auto",
+          textAlign: "center",
+          marginTop: '-80px',
+          fontSize: '40px'
+        }}
+      >
+        Macro Calculator
+      </h1>
+
+      <Image
+        width={320}
+        height={180}
+        src="/weightlift.png"
+        alt="Default Image"
+        style={{
+          position: "absolute",
+          top: "200px",
+          left: "900px",
+          zIndex: "1",
+        }}
       />
       <li className={box.left}>
         <form onSubmit={handleSubmit}>
           <label className={styles.indentedlabel}>
             Enter your name:
-            <TextField id="name" label="Name" value={name} onChange={handleName}/>
+            <TextField
+              id="name"
+              label="Name"
+              value={name}
+              onChange={handleName}
+            />
           </label>
           <label htmlFor="genderSelect">Select Gender:</label>
           <FormControl fullWidth>
-          <InputLabel id="genderSelect" className="rounded-lg" value="">
-            Select
-          </InputLabel>
-          <Select onChange={handleGender} value={gender}>
-            <MenuItem value={null}>Select</MenuItem>
-            <MenuItem value="male">Male</MenuItem>
-            <MenuItem value="female">Female</MenuItem>
-          </Select>
-        </FormControl>
+            <InputLabel id="genderSelect" className="rounded-lg" value="">
+              Select
+            </InputLabel>
+            <Select onChange={handleGender} value={gender}>
+              <MenuItem value={null}>Select</MenuItem>
+              <MenuItem value="male">Male</MenuItem>
+              <MenuItem value="female">Female</MenuItem>
+            </Select>
+          </FormControl>
           <label className={styles.indentedlabel}>
             Enter your height (inches):
-            <TextField type="number" id="height" label="Height" value={height} onChange={handleHeightChange}/>
+            <TextField
+              type="number"
+              id="height"
+              label="Height"
+              value={height}
+              onChange={handleHeightChange}
+            />
           </label>
           <label className={styles.indentedlabel}>
             Enter your weight (lbs):
-            <TextField type="number" id="weight" label="Weight" value={weight} onChange={handleWeightChange}/>
+            <TextField
+              type="number"
+              id="weight"
+              label="Weight"
+              value={weight}
+              onChange={handleWeightChange}
+            />
           </label>
           <label className={styles.indentedlabel}>
             Enter your age:
-            <TextField type="number" id="age" label="Age" value={age} onChange={handleAgeChange}/>
+            <TextField
+              type="number"
+              id="age"
+              label="Age"
+              value={age}
+              onChange={handleAgeChange}
+            />
           </label>
         </form>
       </li>
