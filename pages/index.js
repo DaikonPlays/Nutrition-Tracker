@@ -65,7 +65,7 @@ function Home() {
 
   return (
     <div className={styles.listcontainer}>
-      <h1
+      <h1 className={styles.title}
         style={{
           display: "block",
           marginLeft: "auto",

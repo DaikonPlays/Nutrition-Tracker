@@ -55,7 +55,11 @@
   .p {
     margin: 0;
   }
-  
+  .title {
+    font-family: 'Simplifica', sans-serif;
+    font-size: 1em;
+    color: #000000;
+  }
   /* Footer */
   
   .footer {

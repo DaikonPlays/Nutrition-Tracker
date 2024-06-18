@@ -14,7 +14,7 @@ function UserData() {
   let fatIntake = 0;
   if (gender === "male") {
     bmr =
-      66.5 + 13.75 * weight * 0.45359237 + 5.003 * height * 2.54 - 6.75 * age;
+      66.5 + 13.75 * (weight/2.205)  + 5.003 * height * 2.54 - 6.75 * age;
   } else {
     bmr =
       655.1 + 9.563 * weight * 0.45359237 + 1.85 * height * 2.54 - 4.676 * age;
@@ -75,7 +75,7 @@ function UserData() {
   return (
     <div>
       <li className={box.caloriebox}>
-        <h1>Your Ideal Macros</h1>
+        <h1 className={box.title}>Your Ideal Macros</h1>
         <h3>Your daily calorie intake: {Math.ceil(totCal)}</h3>
         <h3>Your daily low-end protein intake (grams): {lowproteinIntake}</h3>
         <h3>Your daily high-end protein intake (grams): {highproteinIntake}</h3>
